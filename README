@@ -1,0 +1,30 @@
+Instructions                                                                                                                                                        
+------------                                                                                                                                                        
+1. Building the source code :                                                                                                                                       
+----------------------------                                                                                                                                        
+        1. uncompress the zip file to a destination location                                                                                                        
+        2. make  
+        3. Now you will have lamport_clock executable in your destination folder 
+ 
+2. Running the package :
+----------------------- 
+        1. Once you have built the above source code, execute the below steps 
+                terminal :: $chmod 777 lamport_clock                                                                                                                
+                terminal :: $./lamport_clock                                                                                                                        
+        2. You will be asked for the graph inputs. Do enter the same as per your graph
+        3. Once you have entered all the inputs, allow the code to calculate the clocks for you for a second
+        4. You will see a sequence of prints capturing the logical clocks for every site and its events as                                                          
+                                                                                                                                                                    
+                <site - "name"> : <event number "num"> : <"event type"> : <clock -"value">                                                                          
+                                                                                                                                                                    
+        5. If you want additional logs, do enable DEBUG macro in the code and compile the code.
+                 
+3. Note          
+---------           
+        1. The code assumes, the causal order of messages are maintained. If not, it will end in a dead lock
+        2. The send event waits for a reciever to be ready before sending the event
+        3. The reciever unblocks the sender before getting blocked for reception
+        4. The partner event index in the input section corresponds to the incident event index on the other site
+ 
+        Eg: Send event from P1 to P3 from event number 1 in P1 to event number 3 in P3.
+			Here partner_event_index = 3
